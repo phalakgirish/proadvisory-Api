@@ -6,6 +6,7 @@ import { Property } from './property.schema';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
 
+//
 @Controller('properties')
 export class PropertyController {
   constructor(
