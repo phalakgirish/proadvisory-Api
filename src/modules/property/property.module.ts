@@ -10,6 +10,7 @@ import { PropertyType, PropertyTypeSchema } from '../master/property-type/proper
 import { User, UserSchema } from '../user/user.schema';
 import { Property, PropertySchema } from './property.schema';
 import { StaffSchema } from '../staff/staff.schema';
+import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
 
 @Module({
   imports: [
@@ -24,7 +25,7 @@ import { StaffSchema } from '../staff/staff.schema';
     ]),
   ],
   controllers: [PropertyController],
-  providers: [PropertyService],
+  providers: [PropertyService,CloudinaryService],
   exports: [PropertyService], 
 })
 export class PropertyModule {}
