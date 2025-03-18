@@ -6,7 +6,6 @@ import { Property } from './property.schema';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
 
-// Helllo 2
 @Controller('properties')
 export class PropertyController {
   constructor(
@@ -16,7 +15,7 @@ export class PropertyController {
 
 
   @Post()
-  @UseInterceptors(FilesInterceptor('images', 10)) 
+  @UseInterceptors(FilesInterceptor('images', 3)) 
 async create(
   @Body() createPropertyDto: CreatePropertyDto,
   @UploadedFiles() files: Express.Multer.File[],
