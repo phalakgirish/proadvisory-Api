@@ -11,8 +11,8 @@ async function bootstrap() {
   // Increase the request body size limit
   app.use(bodyParser.json({ limit: '100mb' }));
   app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
-  const adminService = app.get(AdminService); 
-    await adminService.createAdmin();
+  // const adminService = app.get(AdminService); 
+  //   await adminService.createAdmin();
   await app.listen(process.env.PORT ?? 3000);
 
   

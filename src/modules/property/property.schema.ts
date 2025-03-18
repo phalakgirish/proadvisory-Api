@@ -38,6 +38,9 @@ export class Property extends Document {
   carpetArea: number;
 
   @Prop()
+  priceperSqrt: number;
+
+  @Prop()
   floor: number;
 
   @Prop({ type: [Types.ObjectId], ref: 'Amenity' }) 
