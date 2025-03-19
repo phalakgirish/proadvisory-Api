@@ -1,10 +1,12 @@
 
+
 import { IsString, IsNotEmpty } from 'class-validator';
+import { Types } from 'mongoose';
 
 export class CreatePropertySubtypeDto {
   @IsString()
   @IsNotEmpty()
-  propertyType: string; 
+  propertyType: Types.ObjectId; 
 
   @IsString()
   @IsNotEmpty()

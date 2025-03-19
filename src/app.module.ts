@@ -16,13 +16,14 @@ import { PropertyModule } from './modules/property/property.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { FrontendModule } from './modules/frontend/frontend.module';
 
-
+// mongodb://localhost:27017/
+ 
 @Module({
     imports: [ ConfigModule.forRoot({
       envFilePath:'.env',
       isGlobal:true
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/pro-advizar'),
+    MongooseModule.forRoot('mongodb+srv://waghpranav3:Pranav10@cluster0.bjpdj.mongodb.net/pro-advizar'),
     CityModule,AmenityModule,AreaModule,InventoryModule,PropertyTypeModule,PropertySubtypeModule,PropertyInventoryModule,
     StaffModule,UserModule,PropertyModule,AdminModule,FrontendModule
   ],
