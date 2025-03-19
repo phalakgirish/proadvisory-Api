@@ -22,7 +22,7 @@ import { FrontendModule } from './modules/frontend/frontend.module';
       envFilePath:'.env',
       isGlobal:true
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/pro-advizar'),
+    MongooseModule.forRoot('mongodb+srv://waghpranav3:Pranav10@cluster0.bjpdj.mongodb.net/pro-advizar'),
     CityModule,AmenityModule,AreaModule,InventoryModule,PropertyTypeModule,PropertySubtypeModule,PropertyInventoryModule,
     StaffModule,UserModule,PropertyModule,AdminModule,FrontendModule
   ],

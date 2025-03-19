@@ -20,7 +20,10 @@ export class PropertyInventory extends Document {
   buildUpArea: number;
 
   @Prop({ required: true })
-  price: number;
+  minPrice: number;
+
+  @Prop({ required: true })
+  maxPrice: number;
 
   @Prop()
   floorPlan: string;

@@ -57,7 +57,15 @@ export class UpdatePropertyDto {
 
   @IsOptional()
   @IsNumber()
-  price?: number;
+  minPrice: number;
+
+  @IsOptional()
+  @IsNumber()
+  maxPrice: number;
+
+  @IsOptional()
+  @IsNumber()
+  priceperSqrt: number;
 
   @IsOptional()
   @IsString()
