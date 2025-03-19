@@ -14,6 +14,7 @@ import { StaffModule } from './modules/staff/staff.module';
 import { UserModule } from './modules/user/user.module';
 import { PropertyModule } from './modules/property/property.module';
 import { AdminModule } from './modules/admin/admin.module';
+import { FrontendModule } from './modules/frontend/frontend.module';
 
 
 @Module({
@@ -23,7 +24,7 @@ import { AdminModule } from './modules/admin/admin.module';
     }),
     MongooseModule.forRoot('mongodb://localhost:27017/pro-advizar'),
     CityModule,AmenityModule,AreaModule,InventoryModule,PropertyTypeModule,PropertySubtypeModule,PropertyInventoryModule,
-    StaffModule,UserModule,PropertyModule,AdminModule
+    StaffModule,UserModule,PropertyModule,AdminModule,FrontendModule
   ],
   controllers: [AppController],
   providers: [AppService],

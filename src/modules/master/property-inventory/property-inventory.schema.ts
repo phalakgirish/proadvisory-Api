@@ -13,8 +13,11 @@ export class PropertyInventory extends Document {
   @Prop({ type: Types.ObjectId, ref: 'Inventory'})
   inventory: Inventory;
 
-  @Prop({ type: Types.ObjectId, ref: 'Area'})
-  area: Area;
+  @Prop()
+  carpetArea: number;
+
+  @Prop()
+  buildUpArea: number;
 
   @Prop({ required: true })
   price: number;
