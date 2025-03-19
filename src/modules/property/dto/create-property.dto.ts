@@ -44,7 +44,13 @@ export class CreatePropertyDto {
   propertyImages: string[];
 
   @IsNumber()
-  price: number;
+  minPrice: number;
+
+  @IsNumber()
+  maxPrice: number;
+
+  @IsNumber()
+  priceperSqrt: number;
 
   @IsString()
   maplink: string;

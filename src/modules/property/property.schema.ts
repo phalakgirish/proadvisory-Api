@@ -53,7 +53,10 @@ export class Property extends Document {
   propertyImages: string[];
 
   @Prop()
-  price: number;
+  minPrice: number;
+  
+  @Prop()
+  maxPrice: number;
 
   @Prop()
   maplink: string;

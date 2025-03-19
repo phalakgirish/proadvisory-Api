@@ -12,13 +12,20 @@ export class CreatePropertyDto {
   inventory?: Types.ObjectId;
 
   @IsOptional()
-  @IsMongoId()
-  area?: Types.ObjectId;
+  @IsNumber()
+  buildUpArea?: number;
 
   @IsOptional()
+ @IsNumber()
+  carpetArea?: number;
+
+  @IsNotEmpty()
   @IsNumber()
-  @Min(1000)
-  price?: number;
+  minPrice: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  maxPrice: number;
 
   @IsOptional()
   @IsString()
