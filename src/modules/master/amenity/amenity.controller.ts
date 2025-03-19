@@ -56,18 +56,18 @@ export class AmenityController {
   }
 
   @Put(':id')
-  @UseInterceptors(FileInterceptor('uploadFile'))
+  @UseInterceptors(FileInterceptor('imageUrl'))
   async update(
     @Param('id') id: string,
     @Body() amenity: Amenity,
     @UploadedFile() file: Express.Multer.File,
   ): Promise<Amenity> {
     if(file != undefined)
-      {
+    {
         const result_imageURl = await this.cloudinaryService.uploadImage(file,'uploads');
         amenity.imageUrl = result_imageURl.secure_url;
-  
-      }
+
+    }
     const updatedAmenity = await this.amenityService.update(id, amenity); // Removed the file argument here.
     if (!updatedAmenity) {
       throw new NotFoundException('Amenity not found');
