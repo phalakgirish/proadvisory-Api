@@ -15,7 +15,7 @@ export class PropertyController {
 
 
   @Post()
-  @UseInterceptors(FilesInterceptor('images', 3)) 
+  @UseInterceptors(FilesInterceptor('propertyImages', 3)) 
 async create(
   @Body() createPropertyDto: CreatePropertyDto,
   @UploadedFiles() files: Express.Multer.File[],
@@ -50,7 +50,7 @@ async create(
 
 
   @Put(':id')
-  @UseInterceptors(FilesInterceptor('images', 10))
+  @UseInterceptors(FilesInterceptor('propertyImages', 10))
 async update(
   @Param('id') id: string,
   @Body() updatePropertyDto: UpdatePropertyDto,

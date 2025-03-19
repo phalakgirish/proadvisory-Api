@@ -5,27 +5,25 @@ import { UpdatePropertyInventoryDto } from './dto/update-property-inventory.dto'
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
+import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
 
 @Controller('property-inventory')
 export class PropertyInventoryController {
-  constructor(private readonly service: PropertyInventoryService) {}
+  constructor(private readonly service: PropertyInventoryService,
+    private readonly cloudinaryService:CloudinaryService
+  ) {}
 
   @Post()
   @UseInterceptors(
-    FileInterceptor('floorPlan', {
-      storage: diskStorage({
-        destination: './uploads/floorplans',
-        filename: (req, file, cb) => {
-          const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-          cb(null, `${uniqueSuffix}${extname(file.originalname)}`);
-        },
-      }),
-    }),
+    FileInterceptor('floorPlan'),
   )
   async create(@Body() data: CreatePropertyDto, @UploadedFile() file: Express.Multer.File) {
-    if (file) {
-      data.floorPlan = `/uploads/floorplans/${file.filename}`;
-    }
+    if(file != undefined)
+      {
+          const result_floorPlan = await this.cloudinaryService.uploadImage(file,'uploads');
+          data.floorPlan = result_floorPlan.secure_url;
+  
+      }
     return this.service.create(data);
   }
 
@@ -41,20 +39,15 @@ export class PropertyInventoryController {
 
   @Put(':id')
   @UseInterceptors(
-    FileInterceptor('floorPlan', {
-      storage: diskStorage({
-        destination: './uploads/floorplans',
-        filename: (req, file, cb) => {
-          const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-          cb(null, `${uniqueSuffix}${extname(file.originalname)}`);
-        },
-      }),
-    }),
+    FileInterceptor('floorPlan'),
   )
   async update(@Param('id') id: string, @Body() data: UpdatePropertyInventoryDto, @UploadedFile() file?: Express.Multer.File) {
-    if (file) {
-      data.floorPlan = `/uploads/floorplans/${file.filename}`;
-    }
+    if(file != undefined)
+      {
+          const result_floorPlan = await this.cloudinaryService.uploadImage(file,'uploads');
+          data.floorPlan = result_floorPlan.secure_url;
+  
+      }
     return this.service.update(id, data);
   }
 

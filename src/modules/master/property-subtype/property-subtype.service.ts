@@ -34,14 +34,14 @@ export class PropertySubtypeService {
   }
 
   async create(propertySubtypeDto: any): Promise<PropertySubtype> {
-    const propertyType = await this.propertyTypeModel.findOne({ ptname: propertySubtypeDto.propertyType }).exec();
+    // const propertyType = await this.propertyTypeModel.findOne({ ptname: propertySubtypeDto.propertyType }).exec();
 
-    if (!propertyType) {
-      throw new NotFoundException(`Property type "${propertySubtypeDto.propertyType}" not found.`);
-    }
+    // if (!propertyType) {
+    //   throw new NotFoundException(`Property type "${propertySubtypeDto.propertyType}" not found.`);
+    // }
 
     const createdPropertySubtype = new this.propertySubtypeModel({
-      propertyType: propertyType._id,
+      propertyType: propertySubtypeDto.propertyType,
       pstname: propertySubtypeDto.pstname,
       status: propertySubtypeDto.status,
     });
