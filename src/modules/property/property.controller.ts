@@ -48,6 +48,15 @@ async create(
     return property;
   }
 
+  @Get('inventory/:id')
+  async findInventoryByProperTyid(@Param('id') id: string): Promise<Property> {
+    const property = await this.propertyService.findInventoryByPropertyId(id);
+    if (!property) {
+      throw new NotFoundException(`Property with ID ${id} not found`);
+    }
+    return property;
+  }
+
 
   @Put(':id')
   @UseInterceptors(FilesInterceptor('propertyImages', 10))

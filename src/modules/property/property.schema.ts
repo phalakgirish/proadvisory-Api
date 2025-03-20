@@ -68,6 +68,12 @@ export class Property extends Document {
   description: string;
 
   @Prop()
+  isnewlaunch:Boolean;
+
+  @Prop()
+  isfeature:Boolean
+
+  @Prop()
   property_status: string;
 }
 

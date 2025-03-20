@@ -11,6 +11,7 @@ import { User, UserSchema } from '../user/user.schema';
 import { Property, PropertySchema } from './property.schema';
 import { StaffSchema } from '../staff/staff.schema';
 import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
+import { PropertyInventory, PropertyInventorySchema } from '../master/property-inventory/property-inventory.schema';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
       { name: City.name, schema: CitySchema },
       { name: PropertySubtype.name, schema: PropertySubtypeSchema },
       { name: PropertyType.name, schema: PropertyTypeSchema },
+      { name: PropertyInventory.name, schema: PropertyInventorySchema },
     ]),
   ],
   controllers: [PropertyController],

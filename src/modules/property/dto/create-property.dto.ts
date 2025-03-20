@@ -1,4 +1,4 @@
-import { IsString, IsOptional, IsMongoId, IsNumber, IsArray, IsDateString } from 'class-validator';
+import { IsString, IsOptional, IsMongoId, IsNumber, IsArray, IsDateString, IsBoolean } from 'class-validator';
 
 export class CreatePropertyDto {
   @IsString()
@@ -60,6 +60,12 @@ export class CreatePropertyDto {
 
   @IsString()
   description: string;
+
+  @IsBoolean()
+  isnewlaunch:Boolean;
+  
+  @IsBoolean()
+  isfeature:Boolean
 
   @IsString()
   property_status: string;

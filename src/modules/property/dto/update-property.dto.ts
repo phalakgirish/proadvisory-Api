@@ -1,4 +1,4 @@
-import { IsString, IsOptional, IsMongoId, IsNumber, IsArray, IsDateString } from 'class-validator';
+import { IsString, IsOptional, IsMongoId, IsNumber, IsArray, IsDateString, IsBoolean } from 'class-validator';
 
 export class UpdatePropertyDto {
   @IsOptional()
@@ -78,6 +78,14 @@ export class UpdatePropertyDto {
   @IsOptional()
   @IsString()
   description?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isnewlaunch:Boolean;
+  
+  @IsOptional()
+  @IsBoolean()
+  isfeature:Boolean
 
   @IsOptional()
   @IsString()

@@ -1,13 +1,16 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import mongoose, { Model } from 'mongoose';
 import { Property } from './property.schema';
 import { CreatePropertyDto } from './dto/create-property.dto';
 import { UpdatePropertyDto } from './dto/update-property.dto';
+import { PropertyInventory } from '../master/property-inventory/property-inventory.schema';
+const ObjectId = mongoose.Types.ObjectId;
 
 @Injectable()
 export class PropertyService {
-  constructor(@InjectModel(Property.name) private propertyModel: Model<Property>) {}
+  constructor(@InjectModel(Property.name) private propertyModel: Model<Property>,
+  @InjectModel(PropertyInventory.name) private propertyInventoryModel: Model<PropertyInventory>) {}
 
   async create(createPropertyDto: CreatePropertyDto): Promise<Property> {
     const property = new this.propertyModel(createPropertyDto);
@@ -77,5 +80,17 @@ export class PropertyService {
       throw new NotFoundException(`Property with ID ${id} not found`);
     }
     return { message: 'Property deleted successfully' };
+  }
+
+  async findInventoryByPropertyId(id: string): Promise<any> {
+    const property = await this.propertyInventoryModel
+      .find({property:id})
+      .populate('inventory')
+      .exec();
+  
+    if (!property) {
+      throw new NotFoundException(`Property with ID ${id} not found`);
+    }
+    return property;
   }
 }
