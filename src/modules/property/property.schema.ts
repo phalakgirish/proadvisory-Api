@@ -35,6 +35,9 @@ export class Property extends Document {
   noOfBeds: number;
 
   @Prop()
+  noOfBaths: number;
+
+  @Prop()
   carpetArea: number;
 
   @Prop()
@@ -71,7 +74,13 @@ export class Property extends Document {
   isnewlaunch:Boolean;
 
   @Prop()
-  isfeature:Boolean
+  isfeature:Boolean;
+
+  @Prop()
+  isverified:Boolean;
+
+  @Prop()
+  isforsale:Boolean;
 
   @Prop()
   property_status: string;

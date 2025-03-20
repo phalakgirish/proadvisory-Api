@@ -35,6 +35,10 @@ export class UpdatePropertyDto {
 
   @IsOptional()
   @IsNumber()
+  noOfBaths?: number;
+
+  @IsOptional()
+  @IsNumber()
   carpetArea?: number;
 
   @IsOptional()
@@ -86,6 +90,14 @@ export class UpdatePropertyDto {
   @IsOptional()
   @IsBoolean()
   isfeature:Boolean
+
+  @IsOptional()
+  @IsBoolean()
+  isverified:Boolean;
+  
+  @IsOptional()
+  @IsBoolean()
+  isforsale:Boolean;
 
   @IsOptional()
   @IsString()

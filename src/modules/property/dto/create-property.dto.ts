@@ -27,6 +27,9 @@ export class CreatePropertyDto {
   noOfBeds: number;
 
   @IsNumber()
+  noOfBaths: number;
+
+  @IsNumber()
   carpetArea: number;
 
   @IsNumber()
@@ -65,7 +68,13 @@ export class CreatePropertyDto {
   isnewlaunch:Boolean;
   
   @IsBoolean()
-  isfeature:Boolean
+  isfeature:Boolean;
+
+  @IsBoolean()
+  isverified:Boolean;
+  
+  @IsBoolean()
+  isforsale:Boolean;
 
   @IsString()
   property_status: string;
