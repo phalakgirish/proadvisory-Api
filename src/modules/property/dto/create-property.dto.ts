@@ -76,6 +76,9 @@ export class CreatePropertyDto {
   @IsBoolean()
   isforsale:Boolean;
 
+  @IsBoolean()
+  isbalcony:Boolean;
+
   @IsString()
   property_status: string;
 }

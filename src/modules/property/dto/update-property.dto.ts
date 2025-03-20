@@ -100,6 +100,10 @@ export class UpdatePropertyDto {
   isforsale:Boolean;
 
   @IsOptional()
+  @IsBoolean()
+  isbalcony:Boolean;
+
+  @IsOptional()
   @IsString()
   property_status?: string;
 }

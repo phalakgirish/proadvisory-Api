@@ -83,6 +83,9 @@ export class Property extends Document {
   isforsale:Boolean;
 
   @Prop()
+  isbalcony:Boolean;
+
+  @Prop()
   property_status: string;
 }
 
