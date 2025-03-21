@@ -32,6 +32,9 @@ export class CreatePropertyDto {
   @IsNumber()
   carpetArea: number;
 
+  @IsString()
+  parking:string;
+
   @IsNumber()
   floor: number;
 
@@ -78,6 +81,9 @@ export class CreatePropertyDto {
 
   @IsBoolean()
   isbalcony:Boolean;
+
+  @IsBoolean()
+  isunderConstruction:Boolean;
 
   @IsString()
   property_status: string;

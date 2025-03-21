@@ -41,6 +41,9 @@ export class Property extends Document {
   carpetArea: number;
 
   @Prop()
+  parking:string
+
+  @Prop()
   priceperSqrt: number;
 
   @Prop()
@@ -84,6 +87,9 @@ export class Property extends Document {
 
   @Prop()
   isbalcony:Boolean;
+
+  @Prop()
+  isunderConstruction:Boolean;
 
   @Prop()
   property_status: string;

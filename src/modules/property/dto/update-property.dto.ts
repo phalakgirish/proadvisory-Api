@@ -42,6 +42,10 @@ export class UpdatePropertyDto {
   carpetArea?: number;
 
   @IsOptional()
+  @IsString()
+  parking?:string;
+
+  @IsOptional()
   @IsNumber()
   floor?: number;
 
@@ -102,6 +106,10 @@ export class UpdatePropertyDto {
   @IsOptional()
   @IsBoolean()
   isbalcony:Boolean;
+
+  @IsOptional()
+  @IsBoolean()
+  isunderConstruction:Boolean;
 
   @IsOptional()
   @IsString()
