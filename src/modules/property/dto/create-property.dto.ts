@@ -1,4 +1,4 @@
-import { IsString, IsOptional, IsMongoId, IsNumber, IsArray, IsDateString } from 'class-validator';
+import { IsString, IsOptional, IsMongoId, IsNumber, IsArray, IsDateString, IsBoolean } from 'class-validator';
 
 export class CreatePropertyDto {
   @IsString()
@@ -27,7 +27,13 @@ export class CreatePropertyDto {
   noOfBeds: number;
 
   @IsNumber()
+  noOfBaths: number;
+
+  @IsNumber()
   carpetArea: number;
+
+  @IsString()
+  parking:string;
 
   @IsNumber()
   floor: number;
@@ -60,6 +66,24 @@ export class CreatePropertyDto {
 
   @IsString()
   description: string;
+
+  @IsBoolean()
+  isnewlaunch:Boolean;
+  
+  @IsBoolean()
+  isfeature:Boolean;
+
+  @IsBoolean()
+  isverified:Boolean;
+  
+  @IsBoolean()
+  isforsale:Boolean;
+
+  @IsBoolean()
+  isbalcony:Boolean;
+
+  @IsBoolean()
+  isunderConstruction:Boolean;
 
   @IsString()
   property_status: string;

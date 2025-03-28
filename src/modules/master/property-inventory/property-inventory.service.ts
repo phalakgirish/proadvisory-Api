@@ -20,7 +20,6 @@ export class PropertyInventoryService {
       .find()
       .populate('property')
       .populate('inventory')
-      .populate('area')
       .exec();
   }
 
@@ -29,7 +28,6 @@ export class PropertyInventoryService {
       .findById(id)
       .populate('property')
       .populate('inventory')
-      .populate('area')
       .exec();
   }
 
@@ -38,7 +36,6 @@ export class PropertyInventoryService {
       .findByIdAndUpdate(id, data, { new: true })
       .populate('property')
       .populate('inventory')
-      .populate('area')
       .exec();
   }
 

@@ -15,7 +15,7 @@ export class PropertyController {
 
 
   @Post()
-  @UseInterceptors(FilesInterceptor('propertyImages', 3)) 
+  @UseInterceptors(FilesInterceptor('propertyImages', 10)) 
 async create(
   @Body() createPropertyDto: CreatePropertyDto,
   @UploadedFiles() files: Express.Multer.File[],
@@ -42,6 +42,15 @@ async create(
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<Property> {
     const property = await this.propertyService.findOne(id);
+    if (!property) {
+      throw new NotFoundException(`Property with ID ${id} not found`);
+    }
+    return property;
+  }
+
+  @Get('inventory/:id')
+  async findInventoryByProperTyid(@Param('id') id: string): Promise<Property> {
+    const property = await this.propertyService.findInventoryByPropertyId(id);
     if (!property) {
       throw new NotFoundException(`Property with ID ${id} not found`);
     }

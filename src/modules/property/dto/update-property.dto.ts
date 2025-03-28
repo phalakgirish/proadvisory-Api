@@ -1,4 +1,4 @@
-import { IsString, IsOptional, IsMongoId, IsNumber, IsArray, IsDateString } from 'class-validator';
+import { IsString, IsOptional, IsMongoId, IsNumber, IsArray, IsDateString, IsBoolean } from 'class-validator';
 
 export class UpdatePropertyDto {
   @IsOptional()
@@ -35,7 +35,15 @@ export class UpdatePropertyDto {
 
   @IsOptional()
   @IsNumber()
+  noOfBaths?: number;
+
+  @IsOptional()
+  @IsNumber()
   carpetArea?: number;
+
+  @IsOptional()
+  @IsString()
+  parking?:string;
 
   @IsOptional()
   @IsNumber()
@@ -78,6 +86,30 @@ export class UpdatePropertyDto {
   @IsOptional()
   @IsString()
   description?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isnewlaunch:Boolean;
+  
+  @IsOptional()
+  @IsBoolean()
+  isfeature:Boolean
+
+  @IsOptional()
+  @IsBoolean()
+  isverified:Boolean;
+  
+  @IsOptional()
+  @IsBoolean()
+  isforsale:Boolean;
+
+  @IsOptional()
+  @IsBoolean()
+  isbalcony:Boolean;
+
+  @IsOptional()
+  @IsBoolean()
+  isunderConstruction:Boolean;
 
   @IsOptional()
   @IsString()

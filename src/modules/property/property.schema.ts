@@ -35,7 +35,13 @@ export class Property extends Document {
   noOfBeds: number;
 
   @Prop()
+  noOfBaths: number;
+
+  @Prop()
   carpetArea: number;
+
+  @Prop()
+  parking:string
 
   @Prop()
   priceperSqrt: number;
@@ -66,6 +72,24 @@ export class Property extends Document {
 
   @Prop()
   description: string;
+
+  @Prop()
+  isnewlaunch:Boolean;
+
+  @Prop()
+  isfeature:Boolean;
+
+  @Prop()
+  isverified:Boolean;
+
+  @Prop()
+  isforsale:Boolean;
+
+  @Prop()
+  isbalcony:Boolean;
+
+  @Prop()
+  isunderConstruction:Boolean;
 
   @Prop()
   property_status: string;
